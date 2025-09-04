@@ -1,6 +1,6 @@
 # 📱 SignLensAI — Reconnaissance de la langue des signes (ASL)
 
-Projet étudiant (introduction au Machine Learning / Deep Learning).  
+Projet étudiant (Machine Learning / Deep Learning).  
 Application mobile **Expo React Native** permettant de reconnaître les signes de l’alphabet américain (ASL) à partir de la caméra du téléphone.
 
 ---
@@ -60,6 +60,7 @@ Scanner le QR code avec Expo Go sur ton téléphone.
 + Cloé Petetin — frontend mobile (Expo)
 
 + Rémy Legras — backend Flask (API / modèle)
+
 
 
 
