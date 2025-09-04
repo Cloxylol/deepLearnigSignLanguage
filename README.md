@@ -18,13 +18,13 @@ Application mobile **Expo React Native** permettant de reconnaître les signes d
 - **Frontend mobile** : Expo React Native
   - Navigation : `@react-navigation/native`
   - Caméra : `expo-camera`
-  - Reconnaissance : mock `useModel()` → remplacé ensuite par **API Flask**
+  - Reconnaissance : **API Flask**
   - UI : composants React Native custom
 
-- **Backend (en cours d’intégration)** : API Flask
+- **Backend** : API Flask
   - Expose `/predict_image` et `/predict_landmarks`
   - Charge le modèle **mediapipe_vector_model.h5**
-  - Retourne les prédictions (Top-3 + Top-1)
+  - Retourne la prédiction 
 
 
 ---
@@ -60,6 +60,7 @@ Scanner le QR code avec Expo Go sur ton téléphone.
 + Cloé Petetin — frontend mobile (Expo)
 
 + Rémy Legras — backend Flask (API / modèle)
+
 
 
 
