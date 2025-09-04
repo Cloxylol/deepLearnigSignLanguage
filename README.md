@@ -9,7 +9,6 @@ Application mobile **Expo React Native** permettant de reconnaître les signes d
 
 - **Mode Photo** : importer une image ou prendre une photo pour obtenir la prédiction (Top-3).
 - **Mode Live** : lecture continue de la caméra → affichage en temps réel des lettres reconnues, avec lissage anti-bruit.
-- **Historique** (optionnel) : garder une trace des analyses précédentes.
 - **Lecture vocale** : prononce la lettre reconnue (via `expo-speech`).
 - **Interface moderne** : basée sur la maquette *SignLens* (dark theme, accent color, logo).
 
@@ -62,5 +61,6 @@ Scanner le QR code avec Expo Go sur ton téléphone.
 + Cloé Petetin — frontend mobile (Expo)
 
 + Rémy Legras — backend Flask (API / modèle)
+
 
 
