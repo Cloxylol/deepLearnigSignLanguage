@@ -28,30 +28,6 @@ Application mobile **Expo React Native** permettant de reconnaître les signes d
   - Charge le modèle **mediapipe_vector_model.h5**
   - Retourne les prédictions (Top-3 + Top-1)
 
----
-
-## 📂 Structure
-
-app/
-├─ App.js
-├─ screens/
-│ ├─ SplashScreen.js
-│ ├─ HomeScreen.js
-│ ├─ PhotoScreen.js
-│ ├─ LiveScreen.js
-│ └─ ResultScreen.js
-├─ components/
-│ ├─ LogoTitle.js
-│ └─ PredictionBars.js
-├─ lib/
-│ ├─ useModel.js # Mock ou tfjs
-│ └─ api.js # (optionnel) appels à l’API Flask
-├─ assets/
-│ ├─ logo.png
-│ └─ fonts/LibreCaslonText-*.ttf
-└─ theme/
-└─ colors.js
-
 
 ---
 
@@ -86,4 +62,5 @@ Scanner le QR code avec Expo Go sur ton téléphone.
 + Cloé Petetin — frontend mobile (Expo)
 
 + Rémy Legras — backend Flask (API / modèle)
+
 
