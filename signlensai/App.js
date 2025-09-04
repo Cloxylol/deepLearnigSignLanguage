@@ -1,6 +1,9 @@
 import * as React from 'react';
+import * as Font from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useFonts, LibreCaslonText_400Regular, LibreCaslonText_700Bold } 
+  from '@expo-google-fonts/libre-caslon-text';
 import SplashScreen from './screens/SplashScreen';
 import HomeScreen from './screens/HomeScreen';
 import PhotoScreen from './screens/PhotoScreen';
@@ -8,9 +11,17 @@ import LiveScreen from './screens/LiveScreen';
 import ResultScreen from './screens/ResultScreen';
 import { LogoTitle } from './components/LogoTitle';
 
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    LibreCaslonText_400Regular,
+    LibreCaslonText_700Bold,
+  });
+
+  if (!fontsLoaded) return null;
+
   return (
     <NavigationContainer>
       <Stack.Navigator
