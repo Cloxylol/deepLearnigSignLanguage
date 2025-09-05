@@ -6,23 +6,37 @@ import * as Speech from 'expo-speech';
 import { colors } from '../theme/colors';
 import { useModel } from '../lib/useModel';
 
-const INTERVAL_MS = 700;
+const INTERVAL_MS = 1000;
 const WINDOW = 3;
 const MIN_REPEAT = 2;
 
-const USE_API = false;
-const API_URL = 'https://URL-ICI'; //
+const USE_API = true;
+const API_URL = 'http://192.168.1.156:5001'; //
 
 
 async function predictViaApi(base64) {
     try {
-        const r = await fetch(`${API_URL}/predict_image`, {
+        const formData = new FormData();
+        formData.append('image', {
+            uri: `data:image/jpeg;base64,${base64}`,
+            name: 'photo.jpg',
+            type: 'image/jpeg',
+        });
+
+        const r = await fetch(`${API_URL}/vector`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ image_base64: base64 }),
+            headers: {
+                'Accept': 'application/json',
+                // Ne pas mettre 'Content-Type', fetch le gère automatiquement pour FormData
+            },
+            body: formData,
         });
         const js = await r.json();
-        return { top1: js?.top1, top3: js?.top3 || [] };
+        if (js.error) {
+            console.log('API error:', js.error);
+            return { top1: null, top3: [] };
+        }
+        return { top1: js.label, top3: js.top3 || [] };
     } catch (e) {
         console.log('API error', e);
         return { top1: null, top3: [] };
@@ -139,13 +153,16 @@ export default function LiveScreen() {
             {/* Actions */}
             <View style={{ flexDirection: 'row', gap: 10 }}>
                 <TouchableOpacity
-                    onPress={() => setRecognized('')}
+                    onPress={() => setRecognized((t) => t.slice(0, -1))}
                     style={{ flex: 1, backgroundColor: '#E9EDF5', padding: 14, borderRadius: 10 }}
                 >
                     <Text style={{ textAlign: 'center', fontWeight: '700' }}>Effacer</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                    onPress={() => setRecognized((t) => t + ' ')}
+                    onPress={() => {
+                        if (recognized.trim()) Speech.speak(recognized.trim());
+                        setRecognized((t) => t + ' ');
+                    }}
                     style={{ width: 120, backgroundColor: colors.accent, padding: 14, borderRadius: 10 }}
                 >
                     <Text style={{ color: '#fff', textAlign: 'center', fontWeight: '700' }}>Espace</Text>
