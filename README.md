@@ -57,9 +57,9 @@ Scanner le QR code avec Expo Go sur ton téléphone.
 
 ##  👥 Auteurs
 
-+ Cloé Petetin — frontend mobile (Expo)
++ Cloé Petetin 
 
-+ Rémy Legras — backend Flask (API / modèle)
++ Rémy Legras
 
 
 
